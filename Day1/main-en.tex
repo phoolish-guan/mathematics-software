@@ -1,0 +1,54 @@
+\documentclass{article}
+
+\usepackage{amsmath,amssymb,amstext}
+
+\pagestyle{plain}
+
+\title{The similar diagonalization problem of real symmetric matrices}
+\author{Wells Guan \\ from Math and Applied Math (QiangJiJiHua 2001) }
+\date{\today}
+
+\begin{document}
+
+\maketitle
+\newpage
+
+This essay is aimed to submit the first assignment of the course Mathematics Software by Wang Heyu, Zhejiang University, 2021-2022 short semester. The problem is an essential question Linear Algebra, also have significance in Numerical Linear Algebra. The following proposition provide one of the most important views for studying the decomposition of real symmetric matrix.
+\section{Propositions}
+
+\textbf{Theorem.}$A$ is a real symmetric matrix, then there is an orthogonal matrix Q, such that
+\begin{equation}Q^{-1}AQ = Q^TAQ = D\end{equation}
+where D is diagonal.\par
+
+\section{Proof}
+
+\textbf{Proof.}\par
+    At first, we are going to explain that all the eigenvalues of $A$ is real. 
+    Assume $\lambda$ is an eigen value of $A$ and $\exists q s.t. Aq = \lambda q$, then we have:
+    \begin{equation}
+    \lambda^2 = q^T \lambda \lambda q = q^TA^TAq = |Aq|^2 >0  
+    \end{equation}
+    which implies $\lambda \in \mathbb{R}$.
+    
+    Now we can begin the proof by using induction to the dimension of $A$, which is assumed to be $n$: \par
+    
+    $n=1:$ Trivial \par
+    $n=k \implies n=k+1:$ According to the algebra fundamental theorem, 
+    there have to be an eigenvalue $\lambda_0$ of $A\in \mathbb{R}^{(k+1)\times (k+1)}$, and a vector $q, |q| = 1 s.t. Aq = \lambda_0 q$. 
+    By using Schimdt orthogonalization, we can get a standard orthogonal $\beta$ basis contain $q$ easily,
+    and we can assume
+    \begin{equation}
+    [A]_{\beta} = 
+    \left(
+    \begin{array}{cc}
+        \lambda & \\
+            & A_1 \\
+    \end{array}\right)
+    \end{equation}
+    without loss of generality. And there is an orthogonal matrix $Q s.t. [A]_{\beta} = Q^TAQ$, so
+    \begin{equation}
+    A = Q[A]_{\beta}Q^T \implies A_1 = Q_1 A_1 Q_1^T    
+    \end{equation}
+    then use the induction to $A_1$, the theorem is proved.
+
+\end{document}

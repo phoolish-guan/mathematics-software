@@ -1,0 +1,59 @@
+\documentclass[UTF8]{ctexart}
+
+\usepackage{amsmath,amssymb,amstext}
+
+\pagestyle{plain}
+
+\title{实对称矩阵的相似对角化}
+\author{强基数学2001 \\ 关博仁}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+\newpage
+
+本文是浙江大学王何宇老师在2021-2022年短学期的数学软件课程上的第一次项目作业，此文的问题是线性代数当中的一个基本问题，但同时对数值代数的研究有着终于重要意义，对于研究实对称矩阵的分解方法提供了非常重要的视角。
+\section{命题叙述}
+
+\textbf{定理1}$A$ 是一个实对称矩阵, 则存在正交矩阵 $Q$ 使得
+
+\begin{equation}
+Q^{-1}AQ = Q^TAQ = D
+\end{equation}
+
+成立，其中$D$是对角矩阵.\par
+
+\section{命题证明}
+
+\textbf{证明.}\par
+    首先我们说明实对称矩阵 $A$ 的特征值都是实的. 
+    假设 $\lambda$ 是实对称矩阵 $A$ 的一个特征值并且 $\exists q\ s.t. Aq = \lambda q$，则我们有:
+    
+    \begin{equation}
+    \lambda^2 = q^T \lambda \lambda q = q^TA^TAq = |Aq|^2 >0  
+    \end{equation}
+    
+    这说明 $\lambda \in \mathbb{R}$.
+    
+    现在我们开始证明，对实对称矩阵$A$的维数$n$用数学归纳法: \par
+    
+    $n=1:$ 问题平凡 \par
+    $n=k \implies n=k+1:$ 根据代数基本定理
+    必存在一个 $\lambda_0$ 是实对称矩阵 $A\in \mathbb{R}^{(k+1)\times (k+1)}$的特征值, 对应的存在一个向量 $q, |q| = 1\ s.t. Aq = \lambda_0 q$. 
+    根据Schimdt正交化, 我们可以得到一个标准正交基 $\beta$ ，他包含$q$ 并且不失一般性的，我们可以假设
+    \begin{equation}
+    [A]_{\beta} = 
+    \left(
+    \begin{array}{cc}
+        \lambda & \\
+            & A_1 \\
+    \end{array}\right)
+    \end{equation}
+    且容易知道存在正交矩阵 $Q s.t. [A]_{\beta} = Q^TAQ$, 所以
+    \begin{equation}
+    A = Q[A]_{\beta}Q^T \implies A_1 = Q_1 A_1 Q_1^T    
+    \end{equation}
+    对 $A_1$ 使用归纳假设, 定理证毕.
+
+\end{document}
